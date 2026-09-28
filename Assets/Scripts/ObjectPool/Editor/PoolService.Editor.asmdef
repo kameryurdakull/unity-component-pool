@@ -1,0 +1,14 @@
+{
+  "name": "PoolService.Editor",
+  "rootNamespace": "Pooling.Editor",
+  "references": ["PoolService"],
+  "includePlatforms": ["Editor"],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
