@@ -1,0 +1,13 @@
+{
+  "name": "com.kameryurdakull.pool-service",
+  "displayName": "Pool Service",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "Config-driven component pooling with VContainer integration and generated pool identifiers.",
+  "documentationUrl": "https://github.com/kameryurdakull/PoolService#readme",
+  "keywords": [
+    "pooling",
+    "object-pool",
+    "vcontainer"
+  ]
+}

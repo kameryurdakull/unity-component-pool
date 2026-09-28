@@ -14,7 +14,7 @@ namespace Pooling
         private readonly PoolCatalog _catalog;
         private readonly IObjectResolver _resolver;
         private readonly Transform _parent;
-        private readonly Dictionary<PoolId, ComponentPool> _pools = new();
+        private readonly Dictionary<int, ComponentPool> _pools = new();
         private readonly Dictionary<Component, ComponentPool> _owners = new();
         private readonly HashSet<Component> _active = new();
         private Transform _root;
@@ -35,6 +35,7 @@ namespace Pooling
 
             var entries = _catalog.Entries;
             var names = new HashSet<string>(StringComparer.Ordinal);
+            var keys = new HashSet<int>();
 
             // Validate every entry before creating any scene objects.
             for (var index = 0; index < entries.Count; index++)
@@ -46,11 +47,11 @@ namespace Pooling
                     throw new InvalidOperationException($"Invalid pool catalog entry at index {index}.");
                 }
 
-                if (!names.Add(entry.Name) || !Enum.TryParse(entry.Name, false, out PoolId id) ||
-                    id == PoolId.None || !Enum.IsDefined(typeof(PoolId), id))
+                var key = PoolKey.FromName(entry.Name);
+                if (!names.Add(entry.Name) || key == 0 || !keys.Add(key))
                 {
                     throw new InvalidOperationException(
-                        $"Pool '{entry.Name}' is duplicated or missing from PoolId. Regenerate the enum in the catalog inspector.");
+                        $"Pool '{entry.Name}' has a duplicate name or key collision.");
                 }
             }
 
@@ -65,8 +66,8 @@ namespace Pooling
                 for (var index = 0; index < entries.Count; index++)
                 {
                     var entry = entries[index];
-                    Enum.TryParse(entry.Name, false, out PoolId id);
-                    _pools.Add(id, new ComponentPool(entry.Prefab, entry.PrewarmCount,
+                    var key = PoolKey.FromName(entry.Name);
+                    _pools.Add(key, new ComponentPool(entry.Prefab, entry.PrewarmCount,
                         _root, _resolver, _owners));
                 }
             }
@@ -77,7 +78,7 @@ namespace Pooling
             }
         }
 
-        public T Spawn<T>(PoolId id, Vector3 position, Quaternion rotation, Transform parent = null)
+        public T Spawn<T>(int id, Vector3 position, Quaternion rotation, Transform parent = null)
             where T : Component, IPoolable
         {
             if (!_pools.TryGetValue(id, out var pool))

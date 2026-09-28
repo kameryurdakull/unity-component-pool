@@ -1,0 +1,6 @@
+{
+  "name": "PoolService.Generated",
+  "rootNamespace": "Pooling",
+  "references": ["PoolService"],
+  "autoReferenced": true
+}
