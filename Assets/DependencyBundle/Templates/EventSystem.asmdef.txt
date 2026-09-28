@@ -1,0 +1,14 @@
+{
+  "name": "PackageStructure.EventBus",
+  "rootNamespace": "EventSystem",
+  "references": ["UniTask", "VContainer"],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
