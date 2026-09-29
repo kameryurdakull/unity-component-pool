@@ -16,7 +16,7 @@ If a project already contains an older copy under `Assets/Scripts/ObjectPool`, r
 In **Window > Package Management > Package Manager**, choose **Install package from Git URL** and paste:
 
 ```text
-https://github.com/kameryurdakull/PoolService.git?path=/Packages/com.kameryurdakull.pool-service
+https://github.com/kameryurdakull/unity-component-pool.git?path=/Packages/com.kameryurdakull.pool-service
 ```
 
 Add VContainer first with its Git URL:
@@ -31,7 +31,7 @@ You can also put both entries in the consuming project's `Packages/manifest.json
 {
   "dependencies": {
     "jp.hadashikick.vcontainer": "https://github.com/hadashiA/VContainer.git?path=/VContainer/Assets/VContainer#1.19.0",
-    "com.kameryurdakull.pool-service": "https://github.com/kameryurdakull/PoolService.git?path=/Packages/com.kameryurdakull.pool-service"
+    "com.kameryurdakull.pool-service": "https://github.com/kameryurdakull/unity-component-pool.git?path=/Packages/com.kameryurdakull.pool-service"
   }
 }
 ```
