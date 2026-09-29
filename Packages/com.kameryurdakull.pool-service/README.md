@@ -1,11 +1,11 @@
-# Pool Service
+# Unity Component Pool
 
 A Unity component pool configured with a `PoolCatalog` asset. Add a prefab once, generate a strongly typed ID, and resolve one `IPoolService` through VContainer. Instances are injected when created and prewarmed at scope initialization.
 
 ## Requirements
 
 - Unity 6 (6000.0 or newer).
-- [VContainer 1.19.0](https://github.com/hadashiA/VContainer), installed in the **project** before this package. Unity does not allow a Git dependency inside another Git package's `package.json`, so Pool Service cannot install VContainer automatically.
+- [VContainer 1.19.0](https://github.com/hadashiA/VContainer), installed in the **project** before this package. Unity does not allow a Git dependency inside another Git package's `package.json`, so Unity Component Pool cannot install VContainer automatically.
 
 UniTask and DOTween are not required by this package.
 
@@ -36,7 +36,7 @@ You can also put both entries in the consuming project's `Packages/manifest.json
 }
 ```
 
-Add these entries to an existing manifest; keep its other dependencies. Pin the Pool Service URL to a release tag or commit by appending `#tag-or-commit` when you need reproducible builds.
+Add these entries to an existing manifest; keep its other dependencies. Pin the Unity Component Pool URL to a release tag or commit by appending `#tag-or-commit` when you need reproducible builds.
 
 ## Create a catalog
 

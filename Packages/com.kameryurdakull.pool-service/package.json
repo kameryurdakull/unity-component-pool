@@ -1,6 +1,6 @@
 {
   "name": "com.kameryurdakull.pool-service",
-  "displayName": "Pool Service",
+  "displayName": "Unity Component Pool",
   "version": "0.1.0",
   "unity": "6000.0",
   "description": "Config-driven component pooling with VContainer integration and generated pool identifiers.",

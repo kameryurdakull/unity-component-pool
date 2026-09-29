@@ -1,4 +1,4 @@
-# Pool Service
+# Unity Component Pool
 
 A Git-installable Unity 6 component pool with a ScriptableObject catalog, VContainer integration, prewarming, and generated `PoolId` values.
 
